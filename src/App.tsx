@@ -1,6 +1,8 @@
 import { useRef } from 'react';
 import { HeroSection } from '@/components/HeroSection';
+import { FeatureTeaserSection } from '@/components/FeatureTeaserSection';
 import { SignupForm } from '@/components/SignupForm';
+import { Footer } from '@/components/Footer';
 
 function App() {
   const signupFormRef = useRef<HTMLDivElement>(null);
@@ -13,12 +15,11 @@ function App() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="min-h-screen flex flex-col bg-background text-foreground">
       <HeroSection onGetNotifiedClick={handleGetNotifiedClick} />
-      {/* We pass the ref to the SignupForm component itself if it accepts it,
-          otherwise, we wrap it or use the ID approach as implemented above. 
-          For simplicity, using ID based scrollIntoView is robust. */}
-      <SignupForm /> 
+      <FeatureTeaserSection />
+      <SignupForm />
+      <Footer />
     </main>
   );
 }

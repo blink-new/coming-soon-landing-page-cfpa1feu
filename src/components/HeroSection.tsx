@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { ArrowDown } from 'lucide-react';
 
 interface HeroSectionProps {
   onGetNotifiedClick: () => void;
@@ -8,47 +8,38 @@ interface HeroSectionProps {
 
 export function HeroSection({ onGetNotifiedClick }: HeroSectionProps) {
   return (
-    <section className="hero-container">
-      <motion.div
+    <section className="relative flex flex-col items-center justify-center min-h-[85vh] px-6 text-center bg-gradient-to-r from-primary to-accent">
+      <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center"
+        className="text-6xl md:text-8xl font-extrabold text-white drop-shadow-lg"
       >
-        <h1 className="hero-title animate-fade-in">Coming Soon</h1>
-        <p className="hero-subtitle animate-slide-up" style={{ animationDelay: '0.2s' }}>
-          We're crafting something extraordinary. Be the first to know when we launch.
-        </p>
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="animate-bounce-in" 
-          style={{ animationDelay: '0.4s' }}
+        Coming Soon
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="mt-6 max-w-xl text-lg md:text-xl text-white/90"
+      >
+        The future of email delivery is almost here. Stay tuned for something amazing.
+      </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="mt-10"
+      >
+        <Button
+          size="lg"
+          onClick={onGetNotifiedClick}
+          className="bg-white text-primary hover:bg-gray-100"
         >
-          <Button 
-            onClick={onGetNotifiedClick}
-            className="cta-button group"
-            size="lg"
-          >
-            Get Notified
-            <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
-          </Button>
-        </motion.div>
+          Get Notified
+          <ArrowDown className="ml-2 h-5 w-5" />
+        </Button>
       </motion.div>
-      
-      {/* Decorative background elements */}
-      <motion.div 
-        className="absolute -z-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl top-1/4 -left-20"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 0.6, scale: 1 }}
-        transition={{ duration: 1.5, delay: 0.2, type: "spring" }}
-      />
-      <motion.div 
-        className="absolute -z-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl bottom-1/4 -right-20"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 0.6, scale: 1 }}
-        transition={{ duration: 1.5, delay: 0.4, type: "spring" }}
-      />
     </section>
   );
 }

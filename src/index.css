@@ -139,11 +139,10 @@
 /* Custom utility classes */
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
   }
-  
   .bg-gradient {
-    @apply bg-gradient-to-r from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))];
+    @apply bg-gradient-to-r from-primary to-accent;
   }
   
   .animate-fade-in {
@@ -235,4 +234,19 @@
 .success-icon {
   @apply mb-4 mx-auto bg-green-100 text-green-800 rounded-full w-16 h-16 
     flex items-center justify-center;
+}
+
+@layer components {
+  .feature-teaser-section {
+    background-color: hsl(var(--secondary) / 0.1);
+  }
+
+  .feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
 }
